@@ -11,13 +11,6 @@ var server = new Hapi.Server("localhost", "3001", {
             strictHeader: false,
             failAction: "log"
         }
-    },
-    cors: {
-        origin: [
-            "localhost",
-            "*.mallframe.com",
-            "*.franciacortaoutlet.it"
-        ]
     }
 });
 
