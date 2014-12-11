@@ -8,8 +8,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "hapi": "^7.5.2",
-    "yar": "^2.4.0"
+      "hapi": "^8.x.x",
+      "yar": "^3.x.x"
   },
   "repository": "https://github.com/ubaltaci/yar_cached_items.git"
 }

@@ -1,27 +1,17 @@
 var Hapi = require("hapi");
 
-var server = new Hapi.Server("localhost", "3001", {
-    security: true,
-    validation: {
-        allowUnknown: true
-    },
-    state: {
-        cookies: {
-            clearInvalid: true,
-            strictHeader: false,
-            failAction: "log"
-        }
-    }
-});
+var server = new Hapi.Server();
 
-server.pack.register({
-    plugin: require("yar"),
+server.connection({ port: 3001 });
+
+server.register({
+    register: require("yar"),
     options: {
         maxCookieSize: 0,
-        cookieOptions: {isSecure: false, password: "some_secret_key"}
+        cookieOptions: { isSecure: false, password: "some_secret_key" }
     }
 }, function (err) {
-    if(!err) {
+    if (!err) {
         server.route({
             method: "GET",
             path: "/test",
